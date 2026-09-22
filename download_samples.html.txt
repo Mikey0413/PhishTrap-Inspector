@@ -1,0 +1,102 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download PhishTrap Hackathon Test Files</title>
+  <style>
+    body { font-family: monospace; background: #0f172a; color: #f8fafc; padding: 40px; }
+    .card { background: #1e293b; border: 1px solid #334155; padding: 24px; border-radius: 8px; max-width: 600px; margin: 0 auto; }
+    h1 { color: #34d399; font-size: 20px; margin-bottom: 8px; }
+    p { color: #94a3b8; font-size: 13px; line-height: 1.5; }
+    .btn { display: block; width: 100%; padding: 12px; margin: 12px 0; background: #3b82f6; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; text-align: center; }
+    .btn.danger { background: #ef4444; }
+    .btn.success { background: #10b981; }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Hackathon Sample File Generator</h1>
+    <p>Click below to instantly create and download realistic test documents to test your scanner's file and folder ingestion.</p>
+
+    <button class="btn danger" onclick="downloadPhishSample()">
+      Download: Fake_Offer_Letter_Scam.txt (Critical Phish)
+    </button>
+
+    <button class="btn danger" onclick="downloadPhishEmail()">
+      Download: Phishing_Deposit_Trap.eml (Email Phish)
+    </button>
+
+    <button class="btn success" onclick="downloadLegitSample()">
+      Download: Legitimate_Offer_Letter.txt (Safe Baseline)
+    </button>
+  </div>
+
+  <script>
+    function triggerDownload(filename, text) {
+      const element = document.createElement('a');
+      element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+      element.setAttribute('download', filename);
+      element.style.display = 'none';
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    }
+
+    function downloadPhishSample() {
+      const content = `OFFICIAL EMPLOYMENT CONTRACT - APEX GLOBAL TECHNOLOGIES
+Position: Remote Systems & Data Analyst
+Base Salary: $85.00/hr ($176,800/yr)
+
+Dear Candidate,
+Congratulations! You have been selected without an interview based on your qualifications.
+
+MANDATORY HOME OFFICE EQUIPMENT STIPEND:
+We will issue a corporate check of $4,850.00 for your workstation. You must deposit this cheque in your bank account and wire $4,300.00 via Zelle, Bitcoin, or wire transfer to our certified IT hardware supplier within 24 hours.
+
+Please reply immediately with your SSN, front/back photo of your Passport/ID, and contact our HR team via Telegram @ApexHROnboarding or WhatsApp at +1-555-019-2834.
+
+Sender: hr-apextechnologies@gmail.com
+Candidate Portal: http://apex-global-careers-login.top/verify`;
+      triggerDownload('Fake_Offer_Letter_Scam.txt', content);
+    }
+
+    function downloadPhishEmail() {
+      const content = `From: "Stripe Onboarding Desk" <recruitment-stripe@hotmail.com>
+To: candidate@gmail.com
+Subject: Urgent: Security Deposit & Laptop Dispatch for Remote Associate
+Date: Tue, 22 Sep 2026 09:30:00 +0000
+
+Attention,
+
+Your appointment letter has been issued. A refundable background clearance deposit of $250.00 is required before laptop dispatch.
+
+Please remit payment via CashApp tag $TechClearance or Apple Gift Card code and send proof within 12 hours. Failure to comply will lead to job offer cancellation.`;
+      triggerDownload('Phishing_Deposit_Trap.eml', content);
+    }
+
+    function downloadLegitSample() {
+      const content = `OFFER OF EMPLOYMENT: ACME CYBERSECURITY CORP
+Position: Junior Security Engineer
+Location: Bengaluru, India (Hybrid)
+Salary: INR 12,00,000 per annum
+
+Dear Candidate,
+
+Following your technical panel interviews and practical assessment, Acme Cybersecurity Corp is pleased to offer you the role of Junior Security Engineer.
+
+Next Steps:
+Please log in to our secure employee portal at https://careers.acme-corp.com/onboard using your candidate token.
+Hardware (corporate laptop and token) will be provisioned directly by Acme IT Ops and delivered via courier to your registered residential address at zero cost to you. Acme never asks candidates for monetary deposits, equipment purchasing fees, or banking credentials over email or chat applications.
+
+Sincerely,
+People Operations Team
+Acme Cybersecurity Corp
+recruitment@acme-corp.com`;
+      triggerDownload('Legitimate_Offer_Letter.txt', content);
+    }
+  </script>
+</body>
+</html>

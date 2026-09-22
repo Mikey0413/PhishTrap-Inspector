@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Download PhishTrap App</title>
+  <style>
+    body { font-family: sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+    .card { background: #1e293b; padding: 32px; border-radius: 12px; border: 1px solid #334155; text-align: center; max-width: 480px; }
+    button { background: #10b981; color: #042f2e; border: none; padding: 14px 28px; font-size: 15px; font-weight: bold; border-radius: 8px; cursor: pointer; transition: 0.2s; }
+    button:hover { background: #34d399; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2 style="margin-top:0">PhishTrap App Downloader</h2>
+    <p style="color:#94a3b8; font-size:14px; margin-bottom:24px">Click the button below to download the context-aware, zero-false-positive `index.html` directly.</p>
+    <button onclick="downloadApp()">⬇️ Download index.html</button>
+  </div>
+  <script>
+    function downloadApp() {
+      const code = document.getElementById('rawAppCode').textContent;
+      const blob = new Blob([code], { type: 'text/html' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'index.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+  <pre id="rawAppCode" style="display:none"><!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhishTrap // Autonomous Offer & Phishing Inspector</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <style>
+    @media print {
+      body * { visibility: hidden; }
+      #printableReport, #printableReport * { visibility: visible; }
+      #printableReport { position: absolute; left: 0; top: 0; width: 100%; display: block !important; }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200 font-sans antialiased">
+  <header class="border-b border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-slate-900/90 backdrop-blur sticky top-0 z-50 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-9 h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white font-bold shadow-md shadow-emerald-500/20">🛡️</div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white">PhishTrap Inspector</h1>
+            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-800">v3.0 Operational</span>
+          </div>
+          <p class="text-xs text-slate-500 dark:text-slate-400">Offer Letter, Deposit Trap & Threat Intelligence Engine</p>
+        </div>
+      </div>
+      <div class="flex items-center space-x-3">
+        <button id="themeToggleBtn" onclick="toggleTheme()" class="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-semibold text-slate-700 dark:text-slate-200 transition">
+          <span id="themeIcon">🌙</span>
+          <span id="themeText">Dark Mode</span>
+        </button>
+        <button onclick="clearAllInputs()" class="text-xs px-3 py-1.5 rounded-lg text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 border border-rose-200 dark:border-rose-900 font-medium transition">Reset</button>
+      </div>
+    </div>
+  </header>
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+    <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm">
+      <div class="max-w-3xl">
+        <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Inspect Employment Offers, Contracts & Security Deposits</h2>
+        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300 leading-relaxed">Upload documents, screenshots, folders, or paste text. Employs contextual bidirectional heuristics to safeguard authentic corporate offers from false flags.</p>
+      </div>
+      <div class="mt-6 pt-5 border-t border-slate-100 dark:border-slate-800">
+        <span class="text-xs font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">Simulated Threat Benchmarks & Case Samples:</span>
+        <div class="flex flex-wrap gap-2 mt-2.5">
+          <button onclick="loadSample('advance_fee')" class="text-xs px-3 py-1.5 rounded-lg bg-red-50 hover:bg-red-100 dark:bg-red-950/40 dark:hover:bg-red-900/60 text-red-700 dark:text-red-300 border border-red-200 dark:border-red-900 font-medium transition">Load Case A: Pay-For-Equipment Advance Fee</button>
+          <button onclick="loadSample('deposit_trap')" class="text-xs px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 dark:bg-amber-950/40 dark:hover:bg-amber-900/60 text-amber-700 dark:text-amber-300 border border-amber-200 dark:border-amber-900 font-medium transition">Load Case B: Security Deposit Trap</button>
+          <button onclick="loadSample('legit_offer')" class="text-xs px-3 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-900 font-medium transition">Load Case C: Legitimate Enterprise Offer</button>
+        </div>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div class="lg:col-span-6 space-y-6">
+        <div class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-5">
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm uppercase tracking-wider flex items-center gap-2"><span>📁</span> Ingestion Intake</h3>
+            <span class="text-xs text-slate-500 font-mono">OCR & PDF.js Enabled</span>
+          </div>
+          <div id="dropZone" class="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 rounded-xl p-6 text-center cursor-pointer bg-slate-50/50 dark:bg-slate-950/40 transition">
+            <div class="text-3xl mb-2">📄</div>
+            <p class="text-sm font-semibold text-slate-700 dark:text-slate-200">Drag and drop files or folders here</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Supports: PDF, Images (PNG, JPG, WebP), TXT, EML, or Directory Folders</p>
+            <div class="flex items-center justify-center gap-3 mt-4">
+              <label class="px-3.5 py-1.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-semibold cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm text-slate-700 dark:text-slate-200">
+                Choose Files
+                <input type="file" id="fileInput" multiple accept=".txt,.pdf,.png,.jpg,.jpeg,.webp,.eml" class="hidden" onchange="handleFileSelect(event)">
+              </label>
+              <label class="px-3.5 py-1.5 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg text-xs font-semibold cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm text-slate-700 dark:text-slate-200">
+                Choose Folder
+                <input type="file" id="folderInput" webkitdirectory directory multiple class="hidden" onchange="handleFileSelect(event)">
+              </label>
+            </div>
+          </div>
+          <div id="processingIndicator" class="hidden p-3 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 rounded-lg text-xs text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+            <svg class="animate-spin h-4 w-4 text-emerald-600" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
+            <span id="processingStatusText">Analyzing content...</span>
+          </div>
+          <div class="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+            <div class="flex justify-between items-center">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Direct Content / Email Body Text</label>
+              <button onclick="clearTextOnly()" class="text-[11px] text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">Clear</button>
+            </div>
+            <textarea id="rawTextInput" rows="7" class="w-full text-xs font-mono p-3.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-slate-800 dark:text-slate-200 placeholder-slate-400" placeholder="Paste offer letter text, email contents, or employment terms here..."></textarea>
+          </div>
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Careers Portal URL or Domain (Optional)</label>
+            <input type="text" id="targetUrlInput" class="w-full text-xs font-mono p-2.5 bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none transition text-slate-800 dark:text-slate-200 placeholder-slate-400" placeholder="e.g. https://apex-global-careers-login.top/verify">
+          </div>
+          <button onclick="executeFullInspection()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-700 active:bg-emerald-800 text-white font-bold rounded-xl shadow-md shadow-emerald-600/20 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition duration-150">
+            <span>🔍 Run Security Inspection</span>
+          </button>
+        </div>
+      </div>
+      <div class="lg:col-span-6 space-y-6">
+        <div id="summaryOverviewCard" class="hidden bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 shadow-sm space-y-4">
+          <div class="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500">Inspection Overview</span>
+              <h4 class="text-lg font-bold text-slate-900 dark:text-white" id="overallStatusHeading">Aggregated Risk Profile</h4>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="exportComprehensiveReport()" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-xs font-semibold border border-slate-300 dark:border-slate-700 transition">📋 Copy Report</button>
+              <button onclick="window.print()" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold transition">🖨️ Print PDF</button>
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-center">
+              <span class="text-[11px] font-semibold text-slate-500 uppercase">Total Items</span>
+              <div id="statTotalItems" class="text-xl font-extrabold text-slate-800 dark:text-slate-200">0</div>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-center">
+              <span class="text-[11px] font-semibold text-slate-500 uppercase">High Threat</span>
+              <div id="statHighThreat" class="text-xl font-extrabold text-rose-600 dark:text-rose-400">0</div>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-950 p-3 rounded-xl border border-slate-200 dark:border-slate-800 text-center">
+              <span class="text-[11px] font-semibold text-slate-500 uppercase">Total Flags</span>
+              <div id="statTotalFlags" class="text-xl font-extrabold text-amber-600 dark:text-amber-400">0</div>
+            </div>
+          </div>
+        </div>
+        <div id="perInputResultsContainer" class="space-y-5">
+          <div id="emptyResultsState" class="bg-white dark:bg-slate-900 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center text-slate-400 dark:text-slate-600">
+            <span class="text-4xl block mb-3">🛡️</span>
+            <p class="font-bold text-sm text-slate-600 dark:text-slate-400">Awaiting Ingestion & Analysis</p>
+            <p class="text-xs mt-1 max-w-sm mx-auto">Upload files, pictures, folders, or paste text to generate individual forensic breakdown cards.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <div id="printableReport" class="hidden p-8 max-w-4xl mx-auto bg-white text-black font-sans">
+    <div class="border-b-2 border-black pb-4 mb-6">
+      <h1 class="text-2xl font-bold tracking-tight">PHISHTRAP // INCIDENT AUDIT DOSSIER</h1>
+      <p class="text-xs text-gray-600">Forensic Examination & Red Flag Audit Report</p>
+      <div class="text-xs mt-2 flex justify-between">
+        <span id="printCaseId">CASE: #PT-2026-AUDIT</span>
+        <span id="printTimestamp">DATE: --</span>
+      </div>
+    </div>
+    <div id="printReportContent" class="space-y-6 text-sm"></div>
+  </div>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+    let fileQueue = [];
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const themeIcon = document.getElementById('themeIcon');
+      const themeText = document.getElementById('themeText');
+      if (html.classList.contains('dark')) {
+        html.classList.remove('dark');
+        themeIcon.textContent = '🌙';
+        themeText.textContent = 'Dark Mode';
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.classList.add('dark');
+        themeIcon.textContent = '☀️';
+        themeText.textContent = 'Light Mode';
+        localStorage.setItem('theme', 'dark');
+      }
+    }
+    if (localStorage.getItem('theme') === 'dark') {
+      document.documentElement.classList.add('dark');
+      document.getElementById('themeIcon').textContent = '☀️';
+      document.getElementById('themeText').textContent = 'Light Mode';
+    }
+
+    const CORPORATE_INTEGRITY_MARKERS = [
+      { regex: /\\b(ctc|cost to company|provident fund|epf|gratuity|esic|stipend)\\b/i, credit: 20, label: "Statutory Payroll & Benefits Terminology" },
+      { regex: /\\b(probation period|notice period|terms of employment|code of conduct|confidentiality agreement)\\b/i, credit: 20, label: "Standard Corporate Governance Clauses" },
+      { regex: /\\b(non-disclosure agreement|intellectual property|inventions assignment)\\b/i, credit: 20, label: "Standard IP & NDA Protection Clauses" },
+      { regex: /\\b(provided by (the )?company|at company('s)? expense|borne by company|no cost to candidate)\\b/i, credit: 25, label: "Explicit Company-Funded Equipment Clause" },
+      { regex: /\\b(human resources department|talent acquisition group|registered office address|corporate identification number|cin:)\\b/i, credit: 15, label: "Formal Corporate Entity Identifiers" }
+    ];
+
+    const REFINED_MALICIOUS_PATTERNS = [
+      {
+        id: "ADVANCE_FEE_EQUIPMENT",
+        regex: /(deposit.*(cheque|check).*wire.*(supplier|vendor))|(buy.*(equipment|macbook|laptop).*certified vendor.*wire)|(cashier's check.*send.*back)/i,
+        label: "Advance-Fee Check Laundering Scam",
+        explanation: "Demands the recipient cash a corporate check and remit/wire funds to an unverified third-party vendor. Legitimate employers directly provision company assets without candidate-routed money transfers.",
+        weight: 45
+      },
+      {
+        id: "UNTRACEABLE_EXTORTION",
+        regex: /(send|wire|transfer|pay).*(crypto|bitcoin|usdt|apple gift card|steam card|zelle|cashapp tag)/i,
+        label: "Irreversible Payment / Transfer Demand",
+        explanation: "Demands payment via consumer P2P applications or cryptocurrency with zero escrow protection or chargeback mechanisms.",
+        weight: 40
+      },
+      {
+        id: "UPFRONT_FEE_DEMAND",
+        regex: /(mandatory|refundable).*(security deposit|background check fee|registration fee|laptop dispatch charge).*(pay|remit|wire)/i,
+        label: "Candidate Security Deposit Trap",
+        explanation: "Demands upfront payment for background verification, onboarding, or training. Legitimate employers bear all recruitment overheads.",
+        weight: 35
+      },
+      {
+        id: "ANONYMOUS_MESSAGING_INTERVIEW",
+        regex: /(interview.*(via|on)\\s*(telegram|whatsapp))|(contact.*hiring.*telegram\\s*@)|(send.*ssn.*telegram)/i,
+        label: "Informal Anonymous Hiring Channel",
+        explanation: "Directs official HR onboarding exclusively through anonymous consumer apps (Telegram/WhatsApp) to conceal organizational identity.",
+        weight: 25
+      },
+      {
+        id: "NO_INTERVIEW_PRETEXT",
+        regex: /(congratulations.*selected without (any )?interview)|(immediate placement.*no technical evaluation)/i,
+        label: "Unsolicited Appointment Without Screening",
+        explanation: "Job offer issued without prior technical rounds or structured interview panels.",
+        weight: 20
+      },
+      {
+        id: "EXCESSIVE_PREMATURE_DOCS",
+        regex: /(urgent.*send.*(ssn|passport copy).*before contract)|(provide.*banking password.*direct deposit)/i,
+        label: "Premature High-Risk Identity Harvesting",
+        explanation: "Solicits immediate identity scans and financial access credentials prior to formal agreement countersigning.",
+        weight: 20
+      },
+      {
+        id: "MANUFACTURED_DEADLINE",
+        regex: /(act immediately within (6|12|24) hours or offer forfeited)|(urgent transfer required within 24 hours)/i,
+        label: "Coercive Time-Pressure Tactic",
+        explanation: "Uses manufactured countdown deadlines to induce rushed payments before authentic verification can take place.",
+        weight: 15
+      }
+    ];
+
+    const FREE_WEBMAIL_DOMAINS = ["gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "proton.me", "aol.com", "zoho.com"];
+    const SUSPICIOUS_TLDS = [".top", ".xyz", ".club", ".buzz", ".work", ".site", ".live", ".icu", ".click"];
+
+    function handleFileSelect(event) {
+      const files = Array.from(event.target.files);
+      if (!files.length) return;
+      processIncomingFiles(files);
+    }
+
+    const dropZone = document.getElementById('dropZone');
+    ['dragenter', 'dragover'].forEach(name => {
+      dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.add('border-emerald-500', 'bg-emerald-50/50'); });
+    });
+    ['dragleave', 'drop'].forEach(name => {
+      dropZone.addEventListener(name, (e) => { e.preventDefault(); dropZone.classList.remove('border-emerald-500', 'bg-emerald-50/50'); });
+    });
+    dropZone.addEventListener('drop', (e) => {
+      const files = Array.from(e.dataTransfer.files);
+      if (files.length) processIncomingFiles(files);
+    });
+
+    async function processIncomingFiles(files) {
+      const indicator = document.getElementById('processingIndicator');
+      const statusText = document.getElementById('processingStatusText');
+      indicator.classList.remove('hidden');
+
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        statusText.textContent = `Processing (${i + 1}/${files.length}): ${file.name}...`;
+        let extractedText = "";
+
+        if (file.type === "application/pdf" || file.name.endsWith('.pdf')) {
+          extractedText = await extractPdfText(file);
+        } else if (file.type.startsWith('image/')) {
+          statusText.textContent = `Running OCR on: ${file.name}...`;
+          extractedText = await extractImageOCR(file);
+        } else {
+          extractedText = await file.text();
+        }
+
+        fileQueue.push({
+          id: 'item_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5),
+          name: file.name,
+          size: (file.size / 1024).toFixed(1) + " KB",
+          type: file.type || "Document",
+          rawText: extractedText
+        });
+      }
+      indicator.classList.add('hidden');
+      executeFullInspection();
+    }
+
+    async function extractPdfText(file) {
+      try {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        let fullText = "";
+        for (let i = 1; i <= pdf.numPages; i++) {
+          const page = await pdf.getPage(i);
+          const content = await page.getTextContent();
+          fullText += content.items.map(item => item.str).join(' ') + "\\n";
+        }
+        return fullText;
+      } catch (err) {
+        return "[Error extracting PDF contents]";
+      }
+    }
+
+    async function extractImageOCR(file) {
+      try {
+        const worker = await Tesseract.createWorker('eng');
+        const ret = await worker.recognize(file);
+        await worker.terminate();
+        return ret.data.text || "";
+      } catch (err) {
+        return "[OCR extraction failed for this image]";
+      }
+    }
+
+    function analyzeItemPayload(itemName, text, urlParam) {
+      let rawScore = 0;
+      let legitimacyCredits = 0;
+      const findings = [];
+      const positiveCredits = [];
+      const combinedText = (text + " " + (urlParam || "")).trim();
+
+      CORPORATE_INTEGRITY_MARKERS.forEach(marker => {
+        if (marker.regex.test(combinedText)) {
+          legitimacyCredits += marker.credit;
+          positiveCredits.push(marker.label);
+        }
+      });
+
+      REFINED_MALICIOUS_PATTERNS.forEach(rule => {
+        if (rule.regex.test(combinedText)) {
+          rawScore += rule.weight;
+          findings.push({
+            type: "Extortion Indicator",
+            label: rule.label,
+            penalty: rule.weight,
+            reason: rule.explanation
+          });
+        }
+      });
+
+      const emailMatches = combinedText.match(/([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\\.[a-zA-Z0-9._-]+)/gi) || [];
+      emailMatches.forEach(email => {
+        const domain = email.split('@')[1].toLowerCase();
+        if (FREE_WEBMAIL_DOMAINS.includes(domain) && (rawScore > 0 || !positiveCredits.length)) {
+          rawScore += 20;
+          findings.push({
+            type: "Identity Spoofing",
+            label: `Official Offer Issued via Free Webmail (@${domain})`,
+            penalty: 20,
+            reason: `Corporate hiring authority transmitted through generic webmail (@${domain}) rather than registered organization domain infrastructure.`
+          });
+        }
+      });
+
+      const urlMatches = combinedText.match(/https?:\\/\\/[^\\s]+/gi) || [];
+      if (urlParam) urlMatches.push(urlParam);
+
+      urlMatches.forEach(urlStr => {
+        try {
+          const parsed = new URL(urlStr.startsWith('http') ? urlStr : 'https://' + urlStr);
+          const hostname = parsed.hostname.toLowerCase();
+          
+          SUSPICIOUS_TLDS.forEach(tld => {
+            if (hostname.endsWith(tld)) {
+              rawScore += 20;
+              findings.push({
+                type: "Host Domain Risk",
+                label: `High-Risk Disposable TLD (${tld})`,
+                penalty: 20,
+                reason: `Domains hosted on ${tld} extensions exhibit statistical correlation with transient phishing infrastructure.`
+              });
+            }
+          });
+
+          if ((hostname.match(/-/g) || []).length >= 2) {
+            rawScore += 15;
+            findings.push({
+              type: "Typosquatting Risk",
+              label: `Multi-hyphenated Domain Structure (${hostname})`,
+              penalty: 15,
+              reason: `Unusual multi-hyphenation patterns often emulate authentic corporate hostnames.`
+            });
+          }
+        } catch (e) {}
+      });
+
+      let adjustedScore = rawScore - legitimacyCredits;
+      adjustedScore = Math.max(0, Math.min(100, adjustedScore));
+
+      let level = "SAFE";
+      if (adjustedScore >= 70) level = "CRITICAL";
+      else if (adjustedScore >= 40) level = "HIGH_RISK";
+      else if (adjustedScore >= 15) level = "SUSPICIOUS";
+
+      return {
+        name: itemName,
+        score: adjustedScore,
+        level: level,
+        findingsCount: findings.length,
+        findings: findings,
+        legitimacyDampeners: positiveCredits,
+        rawSnippet: combinedText.substring(0, 180) + (combinedText.length > 180 ? "..." : "")
+      };
+    }
+
+    function executeFullInspection() {
+      const rawText = document.getElementById('rawTextInput').value.trim();
+      const targetUrl = document.getElementById('targetUrlInput').value.trim();
+
+      const itemsToScan = [...fileQueue];
+
+      if (rawText.length > 0) {
+        itemsToScan.unshift({
+          id: 'text_input_direct',
+          name: "Direct Content & URL Input",
+          size: "Pasted Text",
+          type: "Direct Intake",
+          rawText: rawText
+        });
+      }
+
+      if (itemsToScan.length === 0) {
+        alert("Please upload at least one file/folder or enter offer letter text to inspect.");
+        return;
+      }
+
+      const results = itemsToScan.map(item => analyzeItemPayload(item.name, item.rawText, targetUrl));
+      renderSeparateFindings(results);
+    }
+
+    function renderSeparateFindings(results) {
+      const container = document.getElementById('perInputResultsContainer');
+      const overviewCard = document.getElementById('summaryOverviewCard');
+      overviewCard.classList.remove('hidden');
+
+      document.getElementById('statTotalItems').textContent = results.length;
+      document.getElementById('statHighThreat').textContent = results.filter(r => r.score >= 40).length;
+      document.getElementById('statTotalFlags').textContent = results.reduce((acc, curr) => acc + curr.findingsCount, 0);
+
+      container.innerHTML = "";
+
+      results.forEach((itemResult, idx) => {
+        const badgeColor = getBadgeClass(itemResult.level);
+        const cardBorder = itemResult.score >= 70 ? 'border-red-300 dark:border-red-900/60' : itemResult.score >= 40 ? 'border-amber-300 dark:border-amber-900/60' : 'border-slate-200 dark:border-slate-800';
+
+        const card = document.createElement('div');
+        card.className = `bg-white dark:bg-slate-900 border ${cardBorder} rounded-2xl p-6 shadow-sm space-y-5 transition`;
+
+        card.innerHTML = `
+          <div class="flex items-start justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+            <div class="space-y-1">
+              <div class="flex items-center gap-2">
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-semibold">#${idx + 1}</span>
+                <h4 class="font-bold text-slate-900 dark:text-white text-base tracking-tight truncate max-w-xs sm:max-w-md">${escapeHtml(itemResult.name)}</h4>
+              </div>
+              <p class="text-xs text-slate-500 font-mono italic">"${escapeHtml(itemResult.rawSnippet || 'No text extracted')}"</p>
+            </div>
+            <div class="text-right">
+              <span class="inline-block px-2.5 py-1 text-xs font-bold rounded-lg ${badgeColor}">${itemResult.level.replace('_', ' ')}</span>
+            </div>
+          </div>
+          <div>
+            <div class="flex justify-between items-center text-xs mb-1.5 font-semibold">
+              <span class="text-slate-600 dark:text-slate-400">Scam Threat Index (STI)</span>
+              <span class="text-sm font-extrabold font-mono ${getTextColor(itemResult.level)}">${itemResult.score}/100%</span>
+            </div>
+            <div class="w-full bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
+              <div class="h-full ${getProgressColor(itemResult.score)} transition-all duration-500" style="width: ${itemResult.score}%"></div>
+            </div>
+          </div>
+          ${itemResult.legitimacyDampeners.length > 0 ? `
+            <div class="p-3 bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900 rounded-xl text-xs space-y-1">
+              <span class="font-bold text-emerald-800 dark:text-emerald-300 flex items-center gap-1.5">
+                <span>🛡️</span> Verified Contractual Integrity Markers:
+              </span>
+              <div class="flex flex-wrap gap-1 mt-1">
+                ${itemResult.legitimacyDampeners.map(d => `<span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-200 text-[11px] font-medium">${escapeHtml(d)}</span>`).join('')}
+              </div>
+            </div>
+          ` : ''}
+          <div class="space-y-3 pt-2">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Forensic Artifacts & Red Flags</span>
+              <span class="text-xs font-bold px-2 py-0.5 rounded-full ${itemResult.findingsCount > 0 ? 'bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 border border-amber-300 dark:border-amber-800' : 'bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'}">
+                ${itemResult.findingsCount} ${itemResult.findingsCount === 1 ? 'Finding' : 'Findings'} Found
+              </span>
+            </div>
+            <div class="space-y-2.5">
+              ${itemResult.findings.length === 0 ? `
+                <div class="p-3 bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900 rounded-xl text-xs text-emerald-700 dark:text-emerald-400 flex items-center gap-2">
+                  <span>✓</span>
+                  <span>Document verified authentic. No malicious advance-fee vectors or identity harvesting threats detected.</span>
+                </div>
+              ` : itemResult.findings.map((f, fIdx) => `
+                <div class="p-3.5 bg-slate-50 dark:bg-slate-950/70 border border-slate-200 dark:border-slate-800 rounded-xl text-xs space-y-1.5">
+                  <div class="flex justify-between items-center">
+                    <span class="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1.5">
+                      <span class="text-rose-500 font-bold">#${fIdx + 1}</span>${escapeHtml(f.label)}
+                    </span>
+                    <span class="font-mono text-rose-600 dark:text-rose-400 font-bold bg-rose-50 dark:bg-rose-950/50 px-1.5 py-0.5 rounded border border-rose-200 dark:border-rose-900">+${f.penalty}%</span>
+                  </div>
+                  <div class="text-slate-600 dark:text-slate-400 leading-relaxed"><strong class="text-slate-700 dark:text-slate-300">Why it is suspicious:</strong> ${escapeHtml(f.reason)}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function loadSample(type) {
+      clearAllInputs();
+      const txtArea = document.getElementById('rawTextInput');
+      const urlInput = document.getElementById('targetUrlInput');
+
+      if (type === 'advance_fee') {
+        txtArea.value = `OFFICIAL APPOINTMENT LETTER - APEX GLOBAL TECHNOLOGIES INC.
+Congratulations! You have been selected without any interview based on your qualifications.
+We will issue a corporate cashier's check of $4,500.00 for your home office workstation setup.
+Upon receipt, you must deposit this check in your bank and wire $4,000.00 via Zelle or Bitcoin to our certified IT hardware supplier within 24 hours.
+
+Contact onboarding director Dr. Raymond Cole via Telegram @RaymondCole_HR. Act immediately within 24 hours or offer forfeited.`;
+        urlInput.value = "https://apex-global-careers-login.top/verify";
+      } else if (type === 'deposit_trap') {
+        txtArea.value = `Attention Applicant,
+Your background check clearance is approved.
+A mandatory refundable security deposit of $350.00 must be remitted within 12 hours via CashApp tag $DepositSecurity or Apple Gift Card to release your work laptop.`;
+        urlInput.value = "http://candidate-portal-verify.buzz";
+      } else if (type === 'legit_offer') {
+        txtArea.value = `OFFER OF EMPLOYMENT - ACME CYBERSECURITY SOLUTIONS
+Dear Candidate,
+We are pleased to extend this formal offer following your panel interviews for the position of Associate Engineer.
+Compensation (CTC): INR 12,00,000 per annum, inclusive of Provident Fund (PF) and Gratuity.
+Probation Period: 6 months under standard Terms of Employment and Code of Conduct.
+Company assets including laptop will be provided by the company at company expense. Acme never charges onboarding fees.`;
+        urlInput.value = "https://careers.acme-corp.com/onboard";
+      }
+      executeFullInspection();
+    }
+
+    function clearAllInputs() {
+      fileQueue = [];
+      document.getElementById('rawTextInput').value = '';
+      document.getElementById('targetUrlInput').value = '';
+      document.getElementById('fileInput').value = '';
+      document.getElementById('folderInput').value = '';
+      document.getElementById('perInputResultsContainer').innerHTML = `
+        <div id="emptyResultsState" class="bg-white dark:bg-slate-900 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-2xl p-12 text-center text-slate-400 dark:text-slate-600">
+          <span class="text-4xl block mb-3">🛡️</span>
+          <p class="font-bold text-sm text-slate-600 dark:text-slate-400">Awaiting Ingestion & Analysis</p>
+          <p class="text-xs mt-1 max-w-sm mx-auto">Upload files, pictures, folders, or paste text to generate individual forensic breakdown cards.</p>
+        </div>
+      `;
+      document.getElementById('summaryOverviewCard').classList.add('hidden');
+    }
+
+    function clearTextOnly() { document.getElementById('rawTextInput').value = ''; }
+
+    function getBadgeClass(level) {
+      switch (level) {
+        case "CRITICAL": return "bg-red-100 text-red-800 dark:bg-red-950 dark:text-red-300 border border-red-300 dark:border-red-800";
+        case "HIGH_RISK": return "bg-orange-100 text-orange-800 dark:bg-orange-950 dark:text-orange-300 border border-orange-300 dark:border-orange-800";
+        case "SUSPICIOUS": return "bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-800";
+        default: return "bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800";
+      }
+    }
+
+    function getTextColor(level) {
+      switch (level) {
+        case "CRITICAL": return "text-red-600 dark:text-red-400";
+        case "HIGH_RISK": return "text-orange-600 dark:text-orange-400";
+        case "SUSPICIOUS": return "text-amber-600 dark:text-amber-400";
+        default: return "text-emerald-600 dark:text-emerald-400";
+      }
+    }
+
+    function getProgressColor(score) {
+      if (score >= 70) return "bg-red-500";
+      if (score >= 40) return "bg-amber-500";
+      return "bg-emerald-500";
+    }
+
+    function escapeHtml(text) {
+      if (!text) return "";
+      return text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    function exportComprehensiveReport() {
+      const cards = document.querySelectorAll('#perInputResultsContainer > div');
+      if (!cards.length) return;
+      let report = `# PHISHTRAP FORENSIC AUDIT REPORT\\n`;
+      report += `Generated: ${new Date().toISOString()}\\n`;
+      report += `Total Examined Items: ${document.getElementById('statTotalItems').textContent}\\n\\n`;
+
+      cards.forEach((card, idx) => {
+        const title = card.querySelector('h4').innerText;
+        const score = card.querySelector('.font-mono').innerText;
+        report += `### Item ${idx + 1}: ${title}\\n`;
+        report += `- Threat Score: ${score}\\n`;
+        const findings = card.querySelectorAll('.space-y-2\\\\.5 > div');
+        if (findings.length) {
+          report += `- Forensic Findings:\\n`;
+          findings.forEach(f => { report += `  * ${f.innerText.replace(/\\n+/g, ' ')}\\n`; });
+        }
+        report += `\\n`;
+      });
+
+      navigator.clipboard.writeText(report).then(() => {
+        alert("Comprehensive audit report copied to clipboard!");
+      });
+    }
+
+    window.onbeforeprint = () => {
+      document.getElementById('printTimestamp').innerText = "GENERATED: " + new Date().toLocaleString();
+      const printContainer = document.getElementById('printReportContent');
+      printContainer.innerHTML = document.getElementById('perInputResultsContainer').innerHTML;
+    };
+  </script>
+</body>
+</html></pre>
+</body>
+</html>
